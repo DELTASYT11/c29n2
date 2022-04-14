@@ -40,10 +40,10 @@ function draw()
 Engine.update(engine);
 tower.display();
 pistola.display();
-bala.display();
+bala.display();  // quitar de aqui para que no se vea --- abajo en la 62 ya le decimos que se vea :) 
 //muestra la torre(desafío 4)
- for(var i=0; i<bala.length;i++){
-   showBala(municion[i],i);
+ for(var i=0; i<bala.length;i++){ // aqui va MUNICIÓN 
+   showBala(municion[i],i); // ESTE ES EL NOMBRE DE LA FUNCIÓN DE ABAJO, LA 61- esta ok 
 
 
  }
@@ -52,13 +52,13 @@ bala.display();
 
 function keyPressed() {
    if (keyCode === DOWN_ARROW) {
-      var cannonBall = new Bala(pistola.x, pistola.y);
-       municion.push(cannonBall);
+      var cannonBall = new Bala(pistola.x, pistola.y); 
+       municion.push(cannonBall); 
        }
        }
         //función para mostrar la bala
         
-function showBala(bala, index) {
+function showBala(bala, index) { 
    bala.display();
     if (bala.body.position.x >= width || bala.body.position.y >= height - 50) {
        Matter.World.remove(world, bala.body);
